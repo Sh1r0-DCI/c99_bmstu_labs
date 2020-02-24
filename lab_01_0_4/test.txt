@@ -1,0 +1,5 @@
+input: 45
+output: 1
+
+input: 70
+output: 2
