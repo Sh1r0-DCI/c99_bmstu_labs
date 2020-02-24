@@ -7,7 +7,7 @@ int main(void)
 	int s, num_of_bottles, all_bottles = 0;
 	printf("Input amount of money s: ");
 	scanf("%d", &s);
-	while(s >= 45)
+	while (s >= 45)
 	{
 		num_of_bottles = s / 45;
 		s %= 45;
