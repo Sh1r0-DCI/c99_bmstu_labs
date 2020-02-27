@@ -3,7 +3,7 @@
 int power(int a, int n)
 {
 	int temp = 1;
-	for(int i = 0; i < n; i++)
+	for (int i = 0; i < n; i++)
 	{
 		temp *= a;
 	}
@@ -21,7 +21,7 @@ int main(void)
 		printf("Input error.");
 		return 1;
 	}
-	if (n < 0)
+	if (n < 1)
 	{
 		printf("Input error. n should be non-negative integer.");
 		return 2;
