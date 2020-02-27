@@ -1,0 +1,8 @@
+input: 2 3
+output: 8
+
+input: 2 a
+output: Input error.
+
+input: 1 -1
+output: Input error. n should be non-negative integer.
