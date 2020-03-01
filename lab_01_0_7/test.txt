@@ -1,0 +1,15 @@
+input: 2 0.001
+output: s(x) = 7.388713
+		f(x) = 7.389056
+		absolute error: 0.000344
+		relative error: 0.000046
+
+
+input: 3 abcd
+output: Input error.
+
+input: 123 2
+output: Incorrect input of eps.
+
+input: 123 -1
+output: Incorrect input of eps.
