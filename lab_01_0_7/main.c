@@ -8,7 +8,7 @@ double f(double x)
 
 double s(double x, double eps)
 {
-    double ans = 0, el = 1;
+	double ans = 0, el = 1;
 	for (int i = 0; fabs(el) > eps; i++)
 	{
 		ans += el;
@@ -35,7 +35,7 @@ int main(void)
 		return 2;
 	}
 	printf("s(x) = %lf\nf(x) = %lf\n", s(x, eps), f(x));
-	printf("absolute error: %lf\nrelative error: %lf", fabs(f(x)-s(x, eps)),\
-		fabs((f(x)-s(x, eps))/f(x)));	
+	printf("absolute error: %lf\nrelative error: %lf", fabs(f(x) - s(x, eps)), \
+		fabs((f(x) - s(x, eps)) / f(x)));	
 	return 0;
 }
