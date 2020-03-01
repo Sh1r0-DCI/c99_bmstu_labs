@@ -36,6 +36,6 @@ int main(void)
 	}
 	printf("s(x) = %lf\nf(x) = %lf\n", s(x, eps), f(x));
 	printf("absolute error: %lf\nrelative error: %lf", fabs(f(x) - s(x, eps)), \
-		fabs((f(x) - s(x, eps)) / f(x)));	
+	fabs((f(x) - s(x, eps)) / f(x)));	
 	return 0;
 }
