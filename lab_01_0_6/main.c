@@ -11,7 +11,7 @@ int angle_check(double max, double min1, double min2)
 	{
 		return 0;
 	}
-	else if (pow(max, 2) == pow(min1, 2) + pow(min2, 2))
+	else if (fabs(pow(max, 2) - pow(min1, 2) - pow(min2, 2)) < 0.0001)
 	{
 		return 1;
 	}
@@ -23,7 +23,7 @@ int angle_check(double max, double min1, double min2)
 
 int type_of_triangle(double x1, double y1, double x2, double y2, double x3, double y3)
 {
-	float l1, l2, l3;
+	double l1, l2, l3;
 	l1 = sqrt(pow(x3 - x2, 2) + pow(y3 - y2, 2));
 	l2 = sqrt(pow(x3 - x1, 2) + pow(y3 - y1, 2));
 	l3 = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
