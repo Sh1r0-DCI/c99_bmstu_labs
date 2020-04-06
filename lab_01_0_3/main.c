@@ -13,6 +13,6 @@ int main(void)
 	scanf("%lf %lf %lf", &h, &t, &m);
 	weight = h * t / BRUNHALD_CONSTANT;
 	ind = m / pow(h / CENTIMITERS_IN_METRES, 2);
-	printf("Your normal weight:%.5lf BMI: %.5lf", weight, ind);
+	printf("Your normal weight and BMI:%.5lf %.5lf", weight, ind);
 	return OK;
 }
