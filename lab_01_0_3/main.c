@@ -8,11 +8,11 @@
 int main(void)
 {
 	setbuf(stdout, NULL);
-	float h, t, m, weight, ind;
+	double h, t, m, weight, ind;
 	printf("Input height h, chest length t, weight m: ");
-	scanf("%f %f %f", &h, &t, &m);
+	scanf("%lf %lf %lf", &h, &t, &m);
 	weight = h * t / BRUNHALD_CONSTANT;
 	ind = m / pow(h / CENTIMITERS_IN_METRES, 2);
-	printf("Your normal weight:%.5f BMI: %.5f", weight, ind);
+	printf("Your normal weight:%.5lf BMI: %.5lf", weight, ind);
 	return OK;
 }
