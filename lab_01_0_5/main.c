@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+#define OK 0
+#define INPUT_ERROR 1
+#define WRONG_INPUT_OF_N 2
+
 int power(int a, int n)
 {
 	int temp = 1;
@@ -19,14 +23,14 @@ int main(void)
 	if (rc != 2)
 	{
 		printf("Input error.");
-		return 1;
+		return INPUT_ERROR;
 	}
 	if (n < 1)
 	{
 		printf("Input error. n should be non-negative integer.");
-		return 2;
+		return WRONG_INPUT_OF_N;
 	}
 	ans = power(a, n);
 	printf("%d", ans);
-	return 0;
+	return OK;
 }

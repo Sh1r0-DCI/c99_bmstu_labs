@@ -1,23 +1,32 @@
 #include <stdio.h>
 #include <math.h>
 
+#define e 0.0001
+#define OK 0
+#define INPUT_ERROR 1
+#define TRIANGLE_FORMING_ERROR 2
+#define ZERO_ANGLE -1
+#define SHARP 0
+#define RIGHT 1
+#define OBTUSE 2
+
 int angle_check(double max, double min1, double min2)
 {
-	if (fabs(max - min1 - min2) < 0.0001)
+	if (fabs(max - min1 - min2) < e)
 	{
-		return -1;
+		return ZERO_ANGLE;
 	}
 	if (pow(max, 2) < pow(min1, 2) + pow(min2, 2))
 	{
-		return 0;
+		return SHARP;
 	}
-	else if (fabs(pow(max, 2) - pow(min1, 2) - pow(min2, 2)) < 0.0001)
+	else if (fabs(pow(max, 2) - pow(min1, 2) - pow(min2, 2)) < e)
 	{
-		return 1;
+		return RIGHT;
 	}
 	else
 	{
-		return 2;
+		return OBTUSE;
 	}
 }
 
@@ -61,14 +70,14 @@ int main(void)
 	if (rc != 6)
 	{
 		printf("Input error.");
-		return 1;
+		return INPUT_ERROR;
 	}
 	ans = type_of_triangle(x1, y1, x2, y2, x3, y3);
 	if (ans == -1)
 	{
 		printf("Incorrect coordinates for triangle.");
-		return 2;
+		return TRIANGLE_FORMING_ERROR;
 	}
 	printf("%d", ans);
-	return 0;
+	return OK;
 }
