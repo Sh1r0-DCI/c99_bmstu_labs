@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define e 0.0001
+#define E 0.0001
 #define OK 0
 #define INPUT_ERROR 1
 #define TRIANGLE_FORMING_ERROR 2
@@ -12,7 +12,7 @@
 
 int angle_check(double max, double min1, double min2)
 {
-	if (fabs(max - min1 - min2) < e)
+	if (fabs(max - min1 - min2) < E)
 	{
 		return ZERO_ANGLE;
 	}
@@ -20,7 +20,7 @@ int angle_check(double max, double min1, double min2)
 	{
 		return SHARP;
 	}
-	else if (fabs(pow(max, 2) - pow(min1, 2) - pow(min2, 2)) < e)
+	else if (fabs(pow(max, 2) - pow(min1, 2) - pow(min2, 2)) < E)
 	{
 		return RIGHT;
 	}
