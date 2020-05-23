@@ -36,28 +36,12 @@ int type_of_triangle(double x1, double y1, double x2, double y2, double x3, doub
     l1 = sqrt(pow(x3 - x2, 2) + pow(y3 - y2, 2));
     l2 = sqrt(pow(x3 - x1, 2) + pow(y3 - y1, 2));
     l3 = sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
-    if (l1 >= l2)
-    {
-        if (l1 >= l3)
-        {
-            return angle_check(l1, l2, l3);
-        }
-        else
-        {
-            return angle_check(l3, l1, l2);
-        }
-    }
+    if (l1 >= l2 && l1 >= l3)
+        return angle_check(l1, l2, l3);
+    else if (l2 >= l1 && l2 >= l3)
+        return angle_check(l2, l1, l3);
     else
-    {
-        if (l2 >= l3)
-        {
-            return angle_check(l2, l1, l3);
-        }
-        else
-        {
-            return angle_check(l3, l1, l2);
-        }
-    }
+        return angle_check(l3, l1, l2);
 }
 
 int main(void)
