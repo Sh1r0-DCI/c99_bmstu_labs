@@ -1,0 +1,5 @@
+input: 4 10 4
+output: 24.00000
+
+input: 5 7 4
+output: 20.24621
