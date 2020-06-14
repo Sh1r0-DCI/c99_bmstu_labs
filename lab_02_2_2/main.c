@@ -51,29 +51,29 @@ void output_array(int arr[], int n)
 int main(void)
 {
     setbuf(stdout, NULL);
-	int rc;
-	int n, new_n;
-	printf("Input n - size of the array: ");
-	rc = scanf("%d", &n);
-	if (rc != 1)
-	{
+    int rc;
+    int n, new_n;
+    printf("Input n - size of the array: ");
+    rc = scanf("%d", &n);
+    if (rc != 1)
+    {
         printf("Input error.");
-		return INPUT_ERROR;
+        return INPUT_ERROR;
     }
-	int arr[N];
-	int rcarr = input_array(arr, n);
-	if (rcarr == INPUT_ERROR)
-	{
+    int arr[N];
+    int rcarr = input_array(arr, n);
+    if (rcarr == INPUT_ERROR)
+    {
         printf("Input error.");
-		return INPUT_ERROR;
+        return INPUT_ERROR;
     }
-	int new_arr[N];
-	new_n = rewrite_array(arr, new_arr, n);
-	if (new_n == 0)
-	{
+    int new_arr[N];
+    new_n = rewrite_array(arr, new_arr, n);
+    if (new_n == 0)
+    {
         printf("No new elements.");
-		return NO_ELEMENTS_IN_NEW_ARRAY;
+        return NO_ELEMENTS_IN_NEW_ARRAY;
     }
-	output_array(new_arr, new_n);
-	return OK;
+    output_array(new_arr, new_n);
+    return OK;
 }

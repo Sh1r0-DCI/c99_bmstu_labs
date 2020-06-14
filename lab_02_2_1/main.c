@@ -9,8 +9,8 @@
 int negative_els(int arr[], int n)
 {
     int ne = 0;
-	for (int i = 0; i < n; i++) 
-	{
+    for (int i = 0; i < n; i++) 
+    {
         if (arr[i] < 0)
             ne += 1;
     }
@@ -20,12 +20,12 @@ int negative_els(int arr[], int n)
 int input_array(int arr[], int n)
 {
     int rc;
-	printf("input n elements:\n");
-	for (int i = 0; i < n; i++) 
-	{
+    printf("input n elements:\n");
+    for (int i = 0; i < n; i++) 
+    {
         printf("arr[%d] = ", i);
         rc = scanf("%d", &arr[i]);
-		if (rc != 1)
+        if (rc != 1)
             return INPUT_ERROR;
     }
     return negative_els(arr, n);
@@ -34,7 +34,7 @@ int input_array(int arr[], int n)
 double average_negatives(int arr[], int n, int ne)
 {
     double an;
-	for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
         if (arr[i] < 0)
         {
             an += arr[i];
@@ -46,21 +46,21 @@ double average_negatives(int arr[], int n, int ne)
 int main(void)
 {
     setbuf(stdout, NULL);
-	int rc;
-	int n, ne;
-	printf("Input n - size of the array: ");
-	rc = scanf("%d", &n);
-	if (rc != 1)
-	{
+    int rc;
+    int n, ne;
+    printf("Input n - size of the array: ");
+    rc = scanf("%d", &n);
+    if (rc != 1)
+    {
         printf("Input error.");
-		return INPUT_ERROR;
+        return INPUT_ERROR;
     }
-	int arr[N];
-	ne = input_array(arr, n);
-	if (ne == INPUT_ERROR)
-	{
+    int arr[N];
+    ne = input_array(arr, n);
+    if (ne == INPUT_ERROR)
+    {
         printf("Input error.");
-		return INPUT_ERROR;
+        return INPUT_ERROR;
     }
     if (ne == 0)
     {
