@@ -8,7 +8,7 @@
 
 int first_discharge(int a)
 {
-	while (a > 10)
+	while (	a > 10)
 		a /=10;
 	return a;
 }
