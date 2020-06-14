@@ -8,8 +8,11 @@
 
 int first_discharge(int a)
 {
-	while (	a > 10)
-		a /=10;
+	int temp = a;
+	while (a > 10)
+		a /= 10;
+	if (temp == a)
+		return -1;
 	return a;
 }
 
@@ -18,7 +21,7 @@ int rewrite_array(int a[], int na[], int n)
 	int j = 0;
 	for (int i = 0; i < n; i++)
 	{
-	    if (first_discharge(a[i]) == a[i] % 10)
+		if (first_discharge(a[i]) == a[i] % 10)
 		{
 			na[j] = a[i];
 			j += 1;
@@ -45,7 +48,7 @@ void output_array(int arr[], int n)
 {
 	printf("new array: ");
 	for (int i = 0; i < n; i++)
-        printf("%d ", arr[i]);
+		printf("%d ", arr[i]);
 }
 
 int main(void)
