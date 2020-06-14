@@ -13,7 +13,7 @@ int negative_els(int arr[], int n)
 	{
 		if (arr[i] < 0)
 			ne += 1;
-    }
+	}
 	return ne;
 }
 
@@ -22,20 +22,13 @@ int input_array(int arr[], int n)
 	int rc;
 	printf("input n elements:\n");
 	for (int i = 0; i < n; i++) 
-    {
-	    printf("arr[%d] = ", i);
-	    rc = scanf("%d", &arr[i]);
+	{
+		printf("arr[%d] = ", i);
+		rc = scanf("%d", &arr[i]);
 		if (rc != 1)
 			return INPUT_ERROR;
 	}
 	return negative_els(arr, n);
-}
-
-void output_array(int arr[], int n)
-{
-	printf("array: ");
-	for (int i = 0; i < n; i++)
-		printf("%d ", arr[i]);
 }
 
 double average_negatives(int arr[], int n, int ne)
@@ -75,6 +68,5 @@ int main(void)
 		return NO_NEGATIVE_ELEMENTS;
 	}
 	printf("average of negatives is %lf\n", average_negatives(arr, n, ne));
-	output_array(arr, n);
 	return OK;
 }
