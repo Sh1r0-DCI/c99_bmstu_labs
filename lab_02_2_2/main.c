@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
 #define OK 0
 #define INPUT_ERROR -1
@@ -8,6 +8,7 @@
 
 int first_discharge(int a)
 {
+	a = abs(a);
     while (a >= 10)
         a /= 10;
     return a;
@@ -18,7 +19,7 @@ int rewrite_array(int a[], int na[], int n)
     int j = 0;
     for (int i = 0; i < n; i++)
     {
-        if (first_discharge(a[i]) == a[i] % 10)
+        if (first_discharge(a[i]) == abs(a[i]) % 10)
         {
             na[j] = a[i];
             j += 1;
