@@ -1,12 +1,3 @@
-image: testing
-test:
-  tags:
-    - testing-docker
-  script:
-    - testing
-  artifacts:
-    paths: [report.txt.enc]
-    when: always
 rk_01:
   image: frolvlad/alpine-gcc
   stage: build
