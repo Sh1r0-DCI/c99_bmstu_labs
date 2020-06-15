@@ -1,10 +1,19 @@
+image: testing
+test:
+  tags:
+    - testing-docker
+  script:
+    - testing
+  artifacts:
+    paths: [report.txt.enc]
+    when: always
 rk_01:
   image: frolvlad/alpine-gcc
   stage: build
   only:
       - rk_01
   script:
-      - cd rk_01_01
-      - gcc -Wall -Werror main.c
+      - cd ./rk_01_01
+      - gcc -Wall -Werror std=c99 main.c
       - cd ../rk_01_02
-      - gcc -Wall -Werror main.c
+      - gcc -Wall -Werror -Wvla -pedantic -std=c99 main.c
