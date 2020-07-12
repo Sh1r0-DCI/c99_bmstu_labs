@@ -6,7 +6,7 @@
 
 int nod(int a, int b)
 {
-    while (a > 0 && b > 0)
+	while (a > 0 && b > 0)
 	{
 		if (a > b)
 			a %= b;
@@ -27,7 +27,7 @@ int main(void)
         printf("Input error.");
         return INPUT_ERROR;
     }
-    if (a <= 0 || b <=0)
+    if (a <= 0 || b <= 0)
     {
         printf("Input error. a and b should be natural.");
         return WRONG_INPUT_OF_NUMBER;
