@@ -10,7 +10,7 @@ int fib(int n)
 {
     int temp0 = FIB_ZERO;
 	int temp1 = FIB_FIRST;
-	int temp;
+	int temp = 1;
     for (int i = 1; i < n; i++)
     {
         temp = temp0 + temp1;
@@ -24,16 +24,16 @@ int main(void)
 {
     setbuf(stdout, NULL);
     int rc, n, ans;
-    printf("Input n (the number of the element >=2): ");
+    printf("Input n (the number of the element): ");
     rc = scanf("%d", &n);
     if (rc != 1)
     {
         printf("Input error.");
         return INPUT_ERROR;
     }
-    if (n < 2)
+    if (n < 1)
     {
-        printf("Input error. n should be >=2.");
+        printf("Input error. n should be natural.");
         return WRONG_INPUT_OF_N;
     }
     ans = fib(n);
