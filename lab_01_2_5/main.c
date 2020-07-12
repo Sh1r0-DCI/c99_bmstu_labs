@@ -10,6 +10,8 @@ int fib(int n)
 {
     int temp0 = FIB_ZERO;
 	int temp1 = FIB_FIRST;
+	if (n == 0)
+		return FIB_ZERO;
 	int temp = 1;
     for (int i = 1; i < n; i++)
     {
@@ -31,9 +33,9 @@ int main(void)
         printf("Input error.");
         return INPUT_ERROR;
     }
-    if (n < 1)
+    if (n < 0)
     {
-        printf("Input error. n should be natural.");
+        printf("Input error. n should be non - negative.");
         return WRONG_INPUT_OF_N;
     }
     ans = fib(n);
