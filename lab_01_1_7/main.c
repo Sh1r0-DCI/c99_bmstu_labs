@@ -7,18 +7,18 @@
 
 double function_f(double x)
 {
-	return sin(x);
+    return sin(x);
 }
 
 double function_s(double x, double eps)
 {
-	double ans = x, el = x;
-	for (int i = 3; fabs(el) > eps; i += 2)
-	{
-		ans += el;
-		el *= x * x / (i * (i - 1));
-	}
-	return ans;
+    double ans = x, el = x;
+    for (int i = 3; fabs(el) > eps; i += 2)
+    {
+        el *= x * x / (i * (i - 1));
+        ans += el;
+    }
+    return ans;
 }
 
 int main(void)
