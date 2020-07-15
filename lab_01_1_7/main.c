@@ -15,7 +15,7 @@ double function_s(double x, double eps)
     double ans = x, el = x;
     for (int i = 3; fabs(el) > eps; i += 2)
     {
-        el *= x * x / (i * (i - 1));
+        el *= (-1) * x * x / (i * (i - 1));
         ans += el;
     }
     return ans;
