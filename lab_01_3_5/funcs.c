@@ -13,12 +13,12 @@ int check_input(int rc, int a, int b)
         printf("Input error. a and b should be natural.");
         return WRONG_INPUT_OF_NUMBER;
     }
-	return OK;
+    return OK;
 }
 
 int nod_rec(int a, int b)
 {
-	if(a == 0)
+    if(a == 0)
         return b;
     return nod_rec(b % a, a);
 }
