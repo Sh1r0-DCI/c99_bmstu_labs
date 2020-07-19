@@ -1,8 +1,5 @@
 #include <stdio.h>
-
-#define OK 0
-#define INPUT_ERROR 1
-#define WRONG_INPUT_OF_NUMBER 2
+#include "funcs.h"
 
 int nod(int a, int b)
 {
@@ -19,20 +16,14 @@ int nod(int a, int b)
 int main(void)
 {
     setbuf(stdout, NULL);
-    int rc, a, b, ans;
+    int rc, a, b, ans, ci;
     printf("Input natural a and b: ");
     rc = scanf("%d %d", &a, &b);
-    if (rc != 2)
+    ci = check_input(rc, a, b);
+    if (ci == OK)
     {
-        printf("Input error.");
-        return INPUT_ERROR;
+        ans = nod_rec(a, b);
+        printf("Your smallest common factor: %d", ans);
     }
-    if (a <= 0 || b <= 0)
-    {
-        printf("Input error. a and b should be natural.");
-        return WRONG_INPUT_OF_NUMBER;
-    }
-    ans = nod(a, b);
-    printf("Your smallest common factor: %d", ans);
-    return OK;
+    return ci;
 }
