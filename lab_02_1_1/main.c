@@ -19,13 +19,13 @@ int main(void)
         printf("Incorrect input of array.");
         ci = INPUT_ERROR;
     }
-	else
-	{
+    else
+    {
         ans = odd_multiplication(arr, n);
         if (ans == NO_ODD_ELEMENTS)
         {
             printf("No odd elements in array.");
-			ci = NO_ODD_ELEMENTS;
+            ci = NO_ODD_ELEMENTS;
         }
     }
     if (ci == OK)

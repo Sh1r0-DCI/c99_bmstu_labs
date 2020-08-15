@@ -26,7 +26,7 @@ int odd_multiplication(int arr[], int n)
     int ans = 1, odd_els = 0;
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] % 2 == 1)
+        if (arr[i] % 2 != 0)
         {
             ans *= arr[i];
             odd_els += 1;
