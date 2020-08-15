@@ -4,6 +4,7 @@
 #define OK 0
 #define N 10
 #define INPUT_ERROR 1
+#define NO_ODD_ELEMENTS 2
 
 int array_input(int arr[], int n);
 void array_output(int arr[], int n);
