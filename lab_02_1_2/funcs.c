@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "funcs.h"
-#include <stdlib.h>
 
 int array_input(int arr[], int n)
 {
@@ -38,8 +37,10 @@ int making_prime_num_array(int arr[], int new_arr[], int n)
 
 int prime_num(int a)
 {
+    if (a <= 1)
+        return NOT_PRIME;
     int is_prime = IS_PRIME;
-    for (int i = 2; i * i <= abs(a); i++)
+    for (int i = 2; i * i <= a; i++)
     {
         if (a % i == 0)
             is_prime = NOT_PRIME;         
