@@ -14,13 +14,6 @@ int array_input(int arr[], int n)
     return OK;
 }
 
-void array_output(int arr[], int n)
-{
-    printf("array:\n");
-    for (int i = 0; i < n; i++)
-        printf("%d", arr[i]);
-}
-
 int odd_multiplication(int arr[], int n)
 {
     int ans = 1, odd_els = 0;
