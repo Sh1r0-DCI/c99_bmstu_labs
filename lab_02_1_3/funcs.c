@@ -30,9 +30,9 @@ int array_change(int arr[], int n)
         if (arr[i] % 3 == 0)
         {
             num_of_multiples_of_three++;
-            if (j++ == 0)
+            if (j == 0)
                 insert_num(arr, ++n, pre_prev_fib, ++i);
-            else if (j++ == 1)
+            else if (j == 1)
                 insert_num(arr, ++n, prev_fib, ++i);
             else
             {
@@ -40,6 +40,7 @@ int array_change(int arr[], int n)
                 prev_fib += pre_prev_fib;
                 pre_prev_fib = prev_fib - pre_prev_fib;
             }
+			j++;
         }
     }
     return num_of_multiples_of_three;
