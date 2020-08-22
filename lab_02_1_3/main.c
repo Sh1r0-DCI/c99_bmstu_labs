@@ -14,6 +14,11 @@ int main(void)
         printf("Input error.");
         ci = INPUT_ERROR;
     }
+    else if (n > 10)
+    {
+        printf("n is too big.");
+        ci = N_IS_TOO_BIG;
+    }
     else if (array_input(arr, n) == INPUT_ERROR)
     {
         printf("Incorrect input of array.");

@@ -5,6 +5,7 @@
 #define N 20
 #define INPUT_ERROR 1
 #define NO_MULTIPLES_OF_THREE_IN_ARRAY -1
+#define N_IS_TOO_BIG 2
 
 int array_input(int arr[], int n);
 void array_output(int arr[], int n);
