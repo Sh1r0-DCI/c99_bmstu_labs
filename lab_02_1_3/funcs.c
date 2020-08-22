@@ -40,7 +40,7 @@ int array_change(int arr[], int n)
                 prev_fib += pre_prev_fib;
                 pre_prev_fib = prev_fib - pre_prev_fib;
             }
-			j++;
+            j++;
         }
     }
     return num_of_multiples_of_three;

@@ -22,11 +22,11 @@ int main(void)
     else
     {
         new_n = n + array_change(arr, n);
-        if (new_n == n)
+        /*if (new_n == n)
         {
             printf("No miltiples of three in array.");
             ci = NO_MULTIPLES_OF_THREE_IN_ARRAY;
-        }
+        }*/
     }
     if (ci == OK)
         array_output(arr, new_n);
