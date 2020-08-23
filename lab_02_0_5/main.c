@@ -29,7 +29,7 @@ int main()
             ci = INPUT_ERROR;
         }
         else
-            printf("max sum: %d\n", max_sum(pa,pa_start,pa_end));
+            printf("max sum: %d\n", max_sum(pa, pa_start, pa_end));
     }
     return ci;
 }
