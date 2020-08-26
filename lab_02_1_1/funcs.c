@@ -14,18 +14,18 @@ int array_input(int arr[], int n)
     return OK;
 }
 
-int odd_multiplication(int arr[], int n)
+int odd_multiplication(int arr[], int n, int *ans)
 {
-    int ans = 1, odd_els = 0;
+    int odd_els = 0;
     for (int i = 0; i < n; i++)
     {
         if (arr[i] % 2 != 0)
         {
-            ans *= arr[i];
+            *ans *= arr[i];
             odd_els += 1;
         }
     }
     if (odd_els == 0)
         return NO_ODD_ELEMENTS;
-    return ans;
+    return OK;
 }

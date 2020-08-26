@@ -7,6 +7,6 @@
 #define NO_ODD_ELEMENTS 2
 
 int array_input(int arr[], int n);
-int odd_multiplication(int arr[], int n);
+int odd_multiplication(int arr[], int n, int *ans);
 
 #endif
