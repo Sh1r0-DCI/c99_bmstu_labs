@@ -1,21 +1,16 @@
 #include <stdio.h>
 #include "funcs.h"
+#include "error_code.h"
 
 int main(void)
 {
     setbuf(stdout, NULL);
-    int rc, ci;
+    int ci;
     int arr[N];
     int n, ans = 1;
-    printf("Input n - array size: ");
-    rc = scanf("%d", &n);
-    if (rc != 1)
-    {
+	ci = array_input(arr, &n);
+    if (ci == INPUT_ERROR)
         printf("Input error.");
-        ci = INPUT_ERROR;
-    }
-    else if ((ci = array_input(arr, n)) == INPUT_ERROR)
-        printf("Incorrect input of array.");
     else
     {
         ci = odd_multiplication(arr, n, &ans);
