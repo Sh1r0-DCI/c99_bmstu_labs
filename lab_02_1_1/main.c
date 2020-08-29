@@ -8,7 +8,7 @@ int main(void)
     int ci;
     int arr[N];
     int n, ans = 1;
-	ci = array_input(arr, &n);
+    ci = array_input(arr, &n);
     if (ci == INPUT_ERROR)
         printf("Input error.");
     else

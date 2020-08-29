@@ -4,7 +4,7 @@
 
 int array_input(int *pa_start, int **pa_end)
 {
-	int *pa = pa_start;
+    int *pa = pa_start;
     int rc, n;
     printf("Input n - array size: ");
     rc = scanf("%d", &n);
@@ -22,8 +22,7 @@ int array_input(int *pa_start, int **pa_end)
         if (rc != 1)
             return INPUT_ERROR;
     }
-	//array_output(pa_start, pa_start, *pa_end);
-	printf("\n");
+    //array_output(pa_start, pa_start, *pa_end);
     return OK;
 }
 
@@ -37,7 +36,7 @@ int array_input(int *pa_start, int **pa_end)
 
 int max_sum(int *const pa_start, int *const pa_end)
 {
-	const int *pa = pa_start;
+    const int *pa = pa_start;
     int sum = *pa_start + *(pa_end - 1);
     for (int i = 0; i <= (pa_end - pa_start - 1) / 2; i++, pa++)
     {

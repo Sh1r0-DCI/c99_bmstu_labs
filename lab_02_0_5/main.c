@@ -15,10 +15,10 @@ int main()
     else if (ci == N_IS_OF_WRONG_VALUE)
         printf("n is of wrong value");
     else
-	{
-		//array_output(pa_start, pa_start, pa_end);
+    {
+	    //array_output(pa_start, pa_start, pa_end);
         printf("max sum: %d\n", max_sum(pa_start, pa_end));
-		//array_output(pa_start, pa_start, pa_end);
-	}
+	    //array_output(pa_start, pa_start, pa_end);
+    }
     return ci;
 }
