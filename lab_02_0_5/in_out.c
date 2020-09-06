@@ -15,7 +15,7 @@ int array_input(int *pa_start, int **pa_end)
     }
     *pa_end = pa_start + n;
     printf("Input n elements:\n");
-    for (int* pa = pa_start; pa != *pa_end; pa++)
+    for (int *pa = pa_start; pa != *pa_end; pa++)
     {
         rc = scanf("%d", pa);
         if (rc != 1)
