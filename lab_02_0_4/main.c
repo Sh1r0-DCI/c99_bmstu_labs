@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "funcs.h"
+#include "in_out.h"
 #include "error_code.h"
 
 int main(void)
