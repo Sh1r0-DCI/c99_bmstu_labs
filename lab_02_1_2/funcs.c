@@ -34,7 +34,7 @@ int making_prime_num_array(int arr[], int new_arr[], int n)
         if (prime_num(arr[i]) == IS_PRIME)
             new_arr[num_of_prime++] = arr[i];
     }
-    return num_of_primes;
+    return num_of_prime;
 }
 
 int prime_num(int a)
