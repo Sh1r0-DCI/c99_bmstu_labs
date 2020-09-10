@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "funcs.h"
+#include "in_out.h"
 #include "error_code.h"
 
 int array_input(int arr[], int *pn)
@@ -9,6 +9,10 @@ int array_input(int arr[], int *pn)
     rc = scanf("%d", pn);
     if (rc != 1)
         return INPUT_ERROR;
+    else if (*pn > MAX_N || *pn < MIN_N)
+    {
+        return N_IS_OF_WRONG_VALUE;
+    }
     printf("Input n elements:\n");
     for (int i = 0; i < *pn; i++)
     {
@@ -19,19 +23,9 @@ int array_input(int arr[], int *pn)
     return OK;
 }
 
-int odd_multiplication(int arr[], int n, int *ans)
+void array_output(int arr[], int n)
 {
-    int odd_els = 0;
-    *ans = 1;
+    printf("array:\n");
     for (int i = 0; i < n; i++)
-    {
-        if (arr[i] % 2 != 0)
-        {
-            *ans *= arr[i];
-            odd_els += 1;
-        }
-    }
-    if (odd_els == 0)
-        return NO_ODD_ELEMENTS;
-    return OK;
+        printf("%d ", arr[i]);
 }

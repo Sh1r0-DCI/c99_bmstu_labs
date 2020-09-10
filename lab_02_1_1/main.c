@@ -7,7 +7,7 @@ int main(void)
     setbuf(stdout, NULL);
     int ci;
     int arr[N];
-    int n, ans = 1;
+    int n, ans;
     ci = array_input(arr, &n);
     if (ci == INPUT_ERROR)
         printf("Input error.");

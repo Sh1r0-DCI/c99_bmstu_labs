@@ -1,1 +1,0 @@
-No negative elements in array.

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "funcs.h"
+#include "in_out.h"
 #include "error_code.h"
 
 int main(void)
@@ -7,7 +8,7 @@ int main(void)
     setbuf(stdout, NULL);
     int ci;
     int arr[N];
-    int n, new_n;
+    int n;
     ci = array_input(arr, &n);
     if (ci == INPUT_ERROR)
         printf("Input error.");
@@ -15,8 +16,8 @@ int main(void)
         printf("n is of wrong value");
     else
     {
-        new_n = n + array_change(arr, n);
-        array_output(arr, new_n);
+        n = array_change(arr, n);
+        array_output(arr, n);
     }
     return ci;
 }

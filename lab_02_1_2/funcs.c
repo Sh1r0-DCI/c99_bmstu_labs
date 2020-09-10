@@ -28,14 +28,11 @@ void array_output(int arr[], int n)
 
 int making_prime_num_array(int arr[], int new_arr[], int n)
 {
-    int j = 0, num_of_primes = 0;
+    int num_of_prime = 0;
     for (int i = 0; i < n; i++)
     {
         if (prime_num(arr[i]) == IS_PRIME)
-        {
-            new_arr[j++] = arr[i];
-            num_of_primes += 1;
-        }
+            new_arr[num_of_prime++] = arr[i];
     }
     return num_of_primes;
 }
