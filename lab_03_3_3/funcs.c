@@ -5,7 +5,7 @@ void row_lower_element_matrix_bubble_sort(int matr[][M], int n, int m)
 {
     for (int k = 0; k < n; k++)
     {
-		int l1 = lower_element_in_row(matr, n, m, 0);
+        int l1 = lower_element_in_row(matr, n, m, 0);
         for (int i = 1; i < n - k; i++)
         {
             int l2 = lower_element_in_row(matr, n, m, i);
@@ -30,7 +30,7 @@ void change_rows(int matr[][M], int n, int m, int row1, int row2)
 
 int lower_element_in_row(int matr[][M], int n, int m, int row)
 {
-	int lower_el = matr[row][0];
+    int lower_el = matr[row][0];
     for (int j = 0; j < m; j++)
     {
         if (matr[row][j] < lower_el)
