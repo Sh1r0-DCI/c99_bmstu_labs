@@ -1,7 +1,7 @@
 #include "funcs.h"
 #include "error_code.h"
 
-void row_lower_element_matrix_bubble_sort(int matr[][M], int n, int m)
+void lower_element_bubble_sort(int matr[][M], int n, int m)
 {
     for (int k = 0; k < n; k++)
     {
