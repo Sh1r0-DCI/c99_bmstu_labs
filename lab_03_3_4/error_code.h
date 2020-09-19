@@ -6,7 +6,9 @@
 #define N 10
 #define M 10
 #define MIN_N 1
+#define MIN_M 1
 #define INPUT_ERROR 1
-#define WRONG_VALUE_OF_N 2
+#define THE_MATRIX_IS_NOT_SQUARE 3
+#define WRONG_VALUE_OF_M_OR_N 2
 
 #endif

@@ -13,10 +13,15 @@ int main(void)
         ci = INPUT_ERROR;
         printf("Input error.");
     }
-    else if (rc == WRONG_VALUE_OF_N)
+    else if (rc == WRONG_VALUE_OF_M_OR_N)
     {
-        ci = WRONG_VALUE_OF_N;
+        ci = WRONG_VALUE_OF_M_OR_N;
         printf("Wrong value of n.");
+    }
+    else if (rc == THE_MATRIX_IS_NOT_SQUARE)
+    {
+        ci = THE_MATRIX_IS_NOT_SQUARE;
+        printf("The matrix is not square.");
     }
     else
     {

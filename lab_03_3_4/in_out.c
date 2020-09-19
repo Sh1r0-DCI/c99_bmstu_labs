@@ -4,17 +4,19 @@
 
 int matrix_input(int matr[][M], int *pn)
 {
-    int rc;
-    printf("Input n(the square matrix size).\n");
-    rc = scanf("%d", pn);
-    if (rc != 1)
+    int rc, m;
+    printf("Input n and m(the matrix size).\n");
+    rc = scanf("%d %d", pn, &m);
+    if (rc != 2)
         return INPUT_ERROR;
-    else if (*pn < MIN_N || *pn > N)
-        return WRONG_VALUE_OF_N;
+    else if (*pn < MIN_N || *pn > N || m < MIN_M || m > M)
+        return WRONG_VALUE_OF_M_OR_N;
+    else if (*pn != m)
+        return THE_MATRIX_IS_NOT_SQUARE;
     printf("Input the matrix\n");
     for (int i = 0; i < *pn; i++)
     {
-        for (int j = 0; j < *pn; j++)
+        for (int j = 0; j < m; j++)
         {
             rc = scanf("%d", &matr[i][j]);
             if (rc != 1)
