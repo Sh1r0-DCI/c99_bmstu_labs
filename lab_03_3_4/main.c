@@ -7,8 +7,8 @@ int main(void)
 {
     setbuf(stdout, NULL);
     int matr[N][N];
-    int n, rc, ci = OK;
-    if ((rc = matrix_input(matr, &n)) == INPUT_ERROR)
+    int n, m, rc, ci = OK;
+    if ((rc = matrix_input(matr, &n, &m)) == INPUT_ERROR)
     {
         ci = INPUT_ERROR;
         printf("Input error.");
@@ -18,7 +18,7 @@ int main(void)
         ci = WRONG_VALUE_OF_M_OR_N;
         printf("Wrong value of n.");
     }
-    else if (rc == THE_MATRIX_IS_NOT_SQUARE)
+    else if (n != m)
     {
         ci = THE_MATRIX_IS_NOT_SQUARE;
         printf("The matrix is not square.");

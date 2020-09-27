@@ -3,8 +3,7 @@
 
 void swapping_mirror_columns(int matr[][M], int n)
 {
-    int j = 0;
-    for (int i = 0; i < n / 2; i++, j++)
+    for (int i = 0, int j = 0; i < n / 2; i++, j++)
         change_columns(matr, n, j, n - j - 1, i, n - i);
 }
 
