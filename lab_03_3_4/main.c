@@ -26,7 +26,7 @@ int main(void)
     else
     {
         swapping_mirror_columns(matr, n);
-        matrix_output(matr, n);
+        matrix_output(matr, n, m);
     }
     return ci;
 }

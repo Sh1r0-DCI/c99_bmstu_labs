@@ -14,7 +14,7 @@ int matrix_input(int matr[][M], int *pn, int *pm)
     printf("Input the matrix\n");
     for (int i = 0; i < *pn; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < *pm; j++)
         {
             rc = scanf("%d", &matr[i][j]);
             if (rc != 1)

@@ -29,7 +29,7 @@ void row_sum_matrix_selection_sort(int matr[][M], int n, int m)
             if (cur_sum < min_sum)
             {
                 min_sum = cur_sum;
-				min_id = i;
+                min_id = i;
             }
         }
         if (min_id != k)
