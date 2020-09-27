@@ -20,7 +20,7 @@ int main(void)
     }
     else
     {
-        row_sum_matrix_bubble_sort(matr, n, m);
+        row_sum_matrix_selection_sort(matr, n, m);
         matrix_output(matr, n, m);
     }
     return ci;
