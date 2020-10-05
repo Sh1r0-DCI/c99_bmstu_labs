@@ -7,5 +7,7 @@
 #define WRD_LEN 16
 #define STRING_IS_TOO_LONG 1
 #define WORD_IS_TOO_LONG 2
+#define THIS_STR_IS_DUPLICATE 0
+#define NO_DUPLICATES 1
 
 #endif
