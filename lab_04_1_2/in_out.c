@@ -4,7 +4,6 @@
 
 int string_input(char *s, int *pn)
 {
-    printf("input string:");
     char ch;
     int i = 0;
     while ((ch = getchar()) != '\n')
@@ -20,7 +19,6 @@ int string_input(char *s, int *pn)
 
 void words_output(char words_arr[][WRD_LEN + 1], int k, int m)
 {
-    printf("Result:");
     for (int i = 0; i < k; i++)
     {
         for (int j = 0; j < m; j++)
