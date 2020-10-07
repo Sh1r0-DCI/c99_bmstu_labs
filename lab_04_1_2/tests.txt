@@ -1,0 +1,27 @@
+input:abcd abc
+output:abc abcd
+error_code:0
+
+input:a aaa aa a aaa a aa
+output:a aa aaa
+error_code:0
+
+input:a,bc.cd    ef ee:;-ea!?
+output:a bc cd ea ee ef
+error_code:0
+
+input:aaaaaaaaaaaaaaaaa
+output:
+error_code:2
+
+input:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaat
+output:
+error_code:1
+
+input:!-?:;
+output:
+error_code:3
+
+input:ae:g,d  a.c
+output:a c d e g
+error_code:0

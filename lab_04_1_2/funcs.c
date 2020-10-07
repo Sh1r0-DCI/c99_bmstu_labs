@@ -15,12 +15,14 @@ int string_to_array(char *s, int n, char words_arr[][WRD_LEN + 1], int *pk, int 
 {
     *pk = 0;
     *pm = 0;
-    char temp[STR_LEN + 1];
+    char temp[STR_LEN + 1] = {'\0'};
+    int any_words_in_s = NO_WORDS;
     for (int i = 0, j = 0; i < n; i++)
     {
         if (s[i] != ' ' && s[i] != ',' && s[i] != '.' && s[i] != ';' && s[i] != '!' && s[i] != '?' && s[i] != ':' && s[i] != '-')
         {
-            if (j > WRD_LEN)
+            any_words_in_s = AT_LEAST_ONE_WORD;
+            if (j >= WRD_LEN)
                 return WORD_IS_TOO_LONG;
             temp[j++] = s[i];
             if (i == n - 1)
@@ -28,24 +30,26 @@ int string_to_array(char *s, int n, char words_arr[][WRD_LEN + 1], int *pk, int 
                 if (j > *pm)
                     *pm = j;
                 if (str_duplicate(words_arr, temp, (*pk) + 1))
-                strncpy(words_arr[*pk], temp, j);
-                (*pk)++;
+                {
+                    strncpy(words_arr[*pk], temp, *pm);
+                    (*pk)++;
+                }
             }
         }
         else if (j != 0)
         {
             if (j > *pm)
                 *pm = j;
-            if (str_duplicate(words_arr, temp, (*pk) + 1))
+            if (str_duplicate(words_arr, temp, *pk))
             {
-                strncpy(words_arr[*pk], temp, j);
+                strncpy(words_arr[*pk], temp, *pm);
                 (*pk)++;
             }
-            memset(temp, 0, j);
+            memset(temp, '\0', *pm);
             j = 0;
         }
     }
-    return OK;
+    return any_words_in_s;
 }
 
 void change_strings_in_array(char *p_s1, char *p_s2, int m)
