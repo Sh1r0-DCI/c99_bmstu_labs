@@ -22,6 +22,6 @@ input:!-?:;
 output:
 error_code:3
 
-input:ae:g,d  a.c
-output:a c d e g
+input:a-e:g,d  a.c;b   b
+output:a b c d e g
 error_code:0

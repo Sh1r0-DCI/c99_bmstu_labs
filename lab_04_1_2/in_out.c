@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "in_out.h"
 #include "constants.h"
+#include "error_code.h"
 
 int string_input(char *s, int *pn)
 {

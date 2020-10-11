@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "constants.h"
+#include "error_code.h"
 #include "in_out.h"
 #include "funcs.h"
+#include "checks.h"
 
 int main(void)
 {
@@ -12,8 +14,9 @@ int main(void)
     char words_arr[STR_LEN + 1][WRD_LEN + 1];
     if ((error_code = string_input(s, &n)) == OK)
     {
-        if ((error_code = string_to_array(s, n, words_arr, &k, &m)) == OK) 
+        if ((error_code = words_len_check(s, n)) == OK)
         {
+            string_to_array(s, n, words_arr, &k, &m);
             string_array_selection_sort(words_arr, k, m);
             words_output(words_arr, k, m);
         }
