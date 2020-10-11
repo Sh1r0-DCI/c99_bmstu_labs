@@ -13,7 +13,7 @@ void string_to_array(char *s, int n, char words_arr[][WRD_LEN + 1], int *pk, int
 {
     *pk = 0;
     *pm = 0;
-    char temp[STR_LEN + 1] = {'\0'};
+    char temp[STR_LEN + 1] = { '\0' };
     for (int i = 0, j = 0; i < n; i++)
     {
         if (!(is_char_a_separator(s[i])))
