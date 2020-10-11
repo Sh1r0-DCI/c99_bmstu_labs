@@ -7,7 +7,7 @@ int string_input(char *s, int *pn)
 {
     char ch;
     int i = 0;
-    while ((ch = getchar()) != '\n')
+    while ((ch = getchar()) != '\n' && ch != EOF)
     {
         if (i > STR_LEN)
             return STRING_IS_TOO_LONG;
