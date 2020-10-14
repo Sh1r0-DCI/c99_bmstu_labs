@@ -2,6 +2,7 @@
 #include "in_out.h"
 #include "constants.h"
 #include "error_code.h"
+#include "funcs.h"
 
 int string_input(char *s, int *pn)
 {
@@ -18,12 +19,12 @@ int string_input(char *s, int *pn)
     return OK;
 }
 
-void words_output(char words_arr[][WRD_LEN + 1], int k, int m)
+void words_output(char words_arr[][WRD_LEN + 1], int k)
 {
     printf("Result:");
     for (int i = 0; i < k; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < my_strlen(words_arr[i]); j++)
             printf("%c", words_arr[i][j]);
         printf(" ");
     }

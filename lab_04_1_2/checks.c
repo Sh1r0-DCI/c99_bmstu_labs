@@ -1,6 +1,6 @@
-#include <string.h>
 #include "error_code.h"
 #include "constants.h"
+#include "funcs.h"
 
 int is_char_a_separator(char a)
 {
@@ -27,11 +27,11 @@ int words_len_check(char *s, int n)
     return any_words_in_str;
 }
 
-int str_duplicate(char words_arr[][WRD_LEN + 1], char temp[], int n)
+int str_duplicate(char words_arr[][WRD_LEN + 1], char *temp, int n)
 {
     for (int i = 0; i < n; i++)
     {
-        if (strcmp(words_arr[i], temp) == 0)
+        if (my_strcmp(words_arr[i], temp) == 0)
             return THIS_STR_IS_DUPLICATE;
     }
     return NO_DUPLICATES;
