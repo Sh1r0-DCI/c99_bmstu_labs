@@ -1,0 +1,9 @@
+4
+Apple
+39
+Orange
+19
+Grape
+40
+Bannana
+50

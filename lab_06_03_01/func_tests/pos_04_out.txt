@@ -1,0 +1,6 @@
+Apple
+39
+Orange
+19
+Grape
+40

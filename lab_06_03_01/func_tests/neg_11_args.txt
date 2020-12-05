@@ -1,0 +1,1 @@
+./main.exe ./func_tests/neg_11_in.txt 200

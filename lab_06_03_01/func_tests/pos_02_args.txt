@@ -1,0 +1,1 @@
+./main.exe ./func_tests/pos_02_in.txt 39.1
