@@ -1,0 +1,1 @@
+./main.exe ./func_tests/pos_04_in.txt 41.0
