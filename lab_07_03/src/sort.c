@@ -10,24 +10,6 @@ static void swap(int *d, int *s)
     *d = v;
 }
 
-static int *binary_search(int *begin, int *end, int search, int (*compare_fn)(const void *, const void *))
-{
-    int *mid;
-    
-    if (begin == end || begin > end)
-        return 0;
-
-    mid = begin + ((((char *) end - (char *) begin) / sizeof(int)) / 2);
-
-    if (*mid == search)
-        return mid;
-
-    if ((*compare_fn)(mid, &search) > 0)
-        return binary_search(mid, end, search, compare_fn);
-
-    return binary_search(begin, mid, search, compare_fn);
-}
-
 void mysort(void *begin, size_t elements, size_t element_size, int (*compare_fn)(const void *, const void *))
 {
     int *end = (int *) ((char *) begin + (elements * element_size));
