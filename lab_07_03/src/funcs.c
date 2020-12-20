@@ -8,7 +8,6 @@
 
 int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
 {
-
     if (pe_src <= pb_src || pb_src == NULL || pe_src == NULL)
     {
         return FILTRATION_FAILURE;

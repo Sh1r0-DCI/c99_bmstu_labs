@@ -7,7 +7,8 @@
 #include "../inc/sort.h"
 #include "../inc/error_codes.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[] )
+{
     FILE *f_in;
     FILE *f_out;
     int numbers;
@@ -50,7 +51,7 @@ int main(int argc, char *argv[]) {
 
         rewind(f_in);
 
-        if(read_from_file(f_in, in_array_begin, numbers, &in_array_end))
+        if (read_from_file(f_in, in_array_begin, numbers, &in_array_end))
         {
             return INPUT_ERROR;
         }
@@ -59,16 +60,16 @@ int main(int argc, char *argv[]) {
 
         if (argc == 4 && (*argv[3]) == 'f')
         {
-            if(key(in_array_begin, in_array_end, &out_array_begin, &out_array_end))
+            if (key(in_array_begin, in_array_end, &out_array_begin, &out_array_end))
             {
                 return FILTRATION_FAILURE;
             }
         }
-
         else if (argc == 4 && (*argv[3]) != 'f')
         {
             return ARGS_INPUT_ERROR;
         }
+
         printf("key ok\n");
 
         filtered = out_array_end - out_array_begin;
@@ -80,9 +81,7 @@ int main(int argc, char *argv[]) {
 
         free(in_array_begin);
         free(out_array_begin);
-
     }
-    
     else
     {
         return EMPTY_FILE;

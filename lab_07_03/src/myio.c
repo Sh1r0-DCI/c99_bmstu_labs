@@ -4,12 +4,12 @@
 
 int read_from_file(FILE *f_in, int *in_array_begin, int n, int **in_array_end)
 {
-    for (*in_array_end= in_array_begin; n > 0; (*in_array_end)++, n--)
+    for (*in_array_end = in_array_begin; n > 0; (*in_array_end)++, n--)
     {
-            if(fscanf(f_in, "%d", *in_array_end) != 1)
-            {
-                return INPUT_ERROR;
-            }
+        if (fscanf(f_in, "%d", *in_array_end) != 1)
+        {
+            return INPUT_ERROR;
+        }
     }
 
     return OK;
