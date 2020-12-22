@@ -19,18 +19,12 @@ compile: objdir $(MAINNAME)
 
 $(MAINNAME): $(SRCOBJECTS)
 	$(CC) $(CF) $^ -o $@
-	@echo "Build done."
 
 objdir:
 	@mkdir -p $(OBJDIR)
 
 clean:
-	rm -rf *.dSYM
 	rm -rf $(MAINNAME) $(OBJDIR)
-	rm -rf ./tests_res
-	rm -rf ./test_build
-	rm -rf ./out.txt
-
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 	@mkdir -p $(OBJDIR)

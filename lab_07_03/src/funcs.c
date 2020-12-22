@@ -19,11 +19,17 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
     (*pb_dst) = 0;
     (*pe_dst) = 0;
 
-    for (int *i_p = (int *)pe_src - 1; i_p > pb_src; --i_p)
+    for (int *i_p = (int *)pe_src - 1; i_p >= pb_src; i_p--)
     {
+        printf("we got element %d\n", *i_p);
         if (*i_p < 0)
         {
             p_element = i_p;
+        }
+
+        if (i_p == pb_src && *i_p < 0)
+        {
+            return FILTRATION_FAILURE;
         }
     }
 
@@ -56,8 +62,12 @@ int fget_numbers(FILE *f, int *numbers)
 
     while (!feof(f) && (number = fscanf(f, "%d", &temp)) != EOF)
     {
-        printf("temp = %d\n", temp);
         (*numbers)++;
+
+        if (number != 1)
+        {
+            return INPUT_ERROR;
+        }
     }
 
     if (number == EOF)

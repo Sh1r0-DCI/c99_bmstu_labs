@@ -1,1 +1,1 @@
-./out/app.exe ./func_tests/neg_03_in.txt ./func_tests/neg_03_out.txt
+./app.exe ./func_tests/unexisting_03_in.txt ./func_tests/neg_03_out.txt
