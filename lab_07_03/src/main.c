@@ -27,14 +27,14 @@ int main(int argc, char *argv[])
     {
         return UNEXISTING_FILE;
     }
-    printf("f_in open ok\n");
+    //printf("f_in open ok\n");
 
     if (fget_numbers(f_in, &numbers) == INPUT_ERROR)
     {
         fclose(f_in);
         return INPUT_ERROR;
     }
-    printf("fget_numbers ok\n");
+    //printf("fget_numbers ok\n");
 
     if (numbers > 0)
     {
@@ -46,48 +46,52 @@ int main(int argc, char *argv[])
 
         if (read_from_file(f_in, in_array_begin, numbers, &in_array_end))
         {
+            free(in_array_begin);
             return INPUT_ERROR;
         }
-        printf("read ok\n");
+        //printf("read ok\n");
 
         f_out = fopen(argv[2], "w");
 
         if (f_out == NULL)
         {
+            free(in_array_begin);
             fclose(f_in);
             return FOPEN_ERROR;
         }
-        printf("both opens ok\n");
+        //printf("both opens ok\n");
 
         if (argc == 4 && (*argv[3]) != 'f')
         {
+            free(in_array_begin);
             return ARGS_INPUT_ERROR;
         }
         else if (argc == 4 && (*argv[3]) == 'f')
         {
             if (key(in_array_begin, in_array_end, &out_array_begin, &out_array_end))
             {
+                free(in_array_begin);
                 return FILTRATION_FAILURE;
             }
 
             filtered = out_array_end - out_array_begin;
-            printf("started sorting\n");
+            //printf("started sorting\n");
             mysort(out_array_begin, filtered, sizeof(int), compare_int_fn);
-            printf("sort ok\n");
-            printf("key ok, starting printing out_array\n");
+            //printf("sort ok\n");
+            //printf("key ok, starting printing out_array\n");
             print_to_file(f_out, out_array_begin, out_array_end);
             free(in_array_begin);
             free(out_array_begin);
         }
         else
         {
-            printf("started sorting\n");
+            //printf("started sorting\n");
             mysort(in_array_begin, numbers, sizeof(int), compare_int_fn);
-            printf("sort ok, starting printing in_array\n");
+            //printf("sort ok, starting printing in_array\n");
             print_to_file(f_out, in_array_begin, in_array_end);
-            printf("print ok\n");
+            //printf("print ok\n");
             free(in_array_begin);
-            printf("free ok\n");
+            //printf("free ok\n");
         }
     }
     else

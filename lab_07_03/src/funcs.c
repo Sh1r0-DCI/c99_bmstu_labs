@@ -21,7 +21,6 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
 
     for (int *i_p = (int *)pe_src - 1; i_p >= pb_src; i_p--)
     {
-        printf("we got element %d\n", *i_p);
         if (*i_p < 0)
         {
             p_element = i_p;
