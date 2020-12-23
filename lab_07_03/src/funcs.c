@@ -19,7 +19,7 @@ int key(const int *pb_src, const int *pe_src, int **pb_dst, int **pe_dst)
     (*pb_dst) = 0;
     (*pe_dst) = 0;
 
-    for (int *i_p = (int *)pe_src - 1; i_p >= pb_src; i_p--)
+    for (int *i_p = (int *)pe_src - 1; i_p >= pb_src && p_element == (int *)pe_src; i_p--)
     {
         if (*i_p < 0)
         {
