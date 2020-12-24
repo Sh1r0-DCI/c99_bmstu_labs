@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <check.h>
 
 #include "funcs.h"
@@ -37,6 +38,8 @@ START_TEST(test_key_common_pos)
         p_ans++;
         p_dst++;
     }
+
+    free(pb_dst);
 }
 
 Suite* key_suite(void)
