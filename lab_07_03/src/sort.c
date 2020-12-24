@@ -14,10 +14,6 @@ static void swap(char *d, char *s, size_t size)
         d++;
         s++;
     }
-    
-    // char temp = *s;
-    // *s = *d;
-    // *d = temp;
 }
 
 void mysort(void *begin, size_t elements, size_t element_size, int (*compare_fn)(const void *, const void *))
@@ -27,14 +23,10 @@ void mysort(void *begin, size_t elements, size_t element_size, int (*compare_fn)
         return;
     }
 
-    //void *end = ((char *) begin + (elements * element_size));
-
-    //for (void *main_it = begin; main_it < end - element_size; main_it++)
     char *pb_main = (char *) begin;
 
     for (size_t i = 0; i < elements - 1; i++)
     {
-        //for (int *second_it = main_it + 1; second_it < end; second_it++)
         char *pb_second = pb_main + element_size;
 
         for (size_t j = i + 1; j < elements; j++)
