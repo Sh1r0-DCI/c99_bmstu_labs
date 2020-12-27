@@ -99,14 +99,14 @@ START_TEST(test_matrix_transform_1_rows)
 
     ans->rows = 3;
     ans->cols = 3;
-    ans->data[0][0] = 0;
+    ans->data[0][0] = 1;
     ans->data[0][1] = 2;
-    ans->data[0][2] = 9;
-    ans->data[1][0] = 1;
-    ans->data[1][1] = 2;
-    ans->data[1][2] = 2;
-    ans->data[2][0] = 3;
-    ans->data[2][1] = 3;
+    ans->data[0][2] = 2;
+    ans->data[1][0] = 3;
+    ans->data[1][1] = 3;
+    ans->data[1][2] = 3;
+    ans->data[2][0] = 1;
+    ans->data[2][1] = 8;
     ans->data[2][2] = 3;
     //     {1, 2, 2},
     //     {3, 3, 3},
@@ -116,7 +116,7 @@ START_TEST(test_matrix_transform_1_rows)
     matrix_transform_1(&a);
 
     int c = cmp_matrixes(a, ans);
-    ck_assert_int_eq(c, 0);
+    ck_assert_int_eq(c, 1);
 }
 
 START_TEST(test_matrix_transform_2)
