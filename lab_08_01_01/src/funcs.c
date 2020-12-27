@@ -4,6 +4,9 @@
 #include "../inc/strucs.h"
 #include "../inc/error_codes.h"
 
+#include <stdio.h>
+#include "../inc/myio.h"
+
 
 void*matrix_dup(matrix_t *src)
 {
@@ -46,28 +49,28 @@ void matrix_destroy(matrix_t **matr)
     }
 }
 
-void matrix_delete_col(matrix_t *m, size_t col)
+void matrix_delete_col(matrix_t **m, size_t col)
 {
-    if (0 != m && 0 != m->data && m->cols > col)
+    if (0 != *m && 0 != (*m)->data && (*m)->cols > col)
     {
         matrix_t *n;
-        matrix_alloc(&n, m->rows, m->cols - 1);
+        matrix_alloc(&n, (*m)->rows, (*m)->cols - 1);
 
-        for (size_t row_c = 0; row_c < m->rows; ++row_c)
+        for (size_t row_c = 0; row_c < (*m)->rows; ++row_c)
         {
-            for (size_t col_c = 0, col_i = 0; col_c < m->cols; ++col_c)
+            for (size_t col_c = 0, col_i = 0; col_c < (*m)->cols; ++col_c)
             {
                 if (col == col_c)
                     continue;
-                n->data[row_c][col_i] = m->data[row_c][col_c];
+                n->data[row_c][col_i] = (*m)->data[row_c][col_c];
                 ++col_i;
             }
         }
-        matrix_destroy(&m);
-        m = calloc(1, sizeof(matrix_t));
-        m->data = n->data;
-        m->rows = n->rows;
-        m->cols = n->cols;
+        matrix_destroy(m);
+        *m = calloc(1, sizeof(matrix_t));
+        (*m)->data = n->data;
+        (*m)->rows = n->rows;
+        (*m)->cols = n->cols;
     }
 }
 
@@ -126,6 +129,20 @@ matrix_t *matrix_transform_3(matrix_t *a, matrix_t *b, int p, int y)
     matrix_t *bb = matrix_dup(b);
     matrix_t *nab;
 
+    if (p == 0)
+    {
+        for (size_t i = 0; i < a->rows; i++)
+        {
+            for (size_t j = 0; j < a->cols; j++)
+            {
+                if (i == j)
+                    aa->data[i][j] = 1;
+                else
+                    aa->data[i][j] = 0;
+            }
+        }
+    }
+
     --p;
 
     while (p > 0)
@@ -134,6 +151,20 @@ matrix_t *matrix_transform_3(matrix_t *a, matrix_t *b, int p, int y)
         matrix_destroy(&aa);
         aa = na;
         --p;
+    }
+
+    if (y == 0)
+    {
+        for (size_t i = 0; i < b->rows; i++)
+        {
+            for (size_t j = 0; j < b->cols; j++)
+            {
+                if (i == j)
+                    bb->data[i][j] = 1;
+                else
+                    bb->data[i][j] = 0;
+            }
+        }
     }
 
     --y;
@@ -210,29 +241,29 @@ void find_max (matrix_t *matr, int *row, int *col)
     
 }
 
-void matrix_delete_row(matrix_t *m, size_t row)
+void matrix_delete_row(matrix_t **m, size_t row)
 {
-    if (0 != m && 0 != m->data && m->rows > row)
+    if (0 != *m && 0 != (*m)->data && (*m)->rows > row)
     {
         matrix_t *n;
-        matrix_alloc(&n, m->rows - 1, m->cols);
+        matrix_alloc(&n, (*m)->rows - 1, (*m)->cols);
 
-        for (size_t row_c = 0, row_i = 0; row_c < m->rows; ++row_c)
+        for (size_t row_c = 0, row_i = 0; row_c < (*m)->rows; ++row_c)
         {
             if (row_c == row)
                 continue;
-            for (size_t col_c = 0; col_c < m->cols; ++col_c)
+            for (size_t col_c = 0; col_c < (*m)->cols; ++col_c)
             {
-                n->data[row_i][col_c] = m->data[row_c][col_c];
+                n->data[row_i][col_c] = (*m)->data[row_c][col_c];
             }
             ++row_i;
         }
 
-        matrix_destroy(&m);
-        m = calloc(1, sizeof(matrix_t));
-        m->data = n->data;
-        m->rows = n->rows;
-        m->cols = n->cols;
+        matrix_destroy(m);
+        *m = calloc(1, sizeof(matrix_t));
+        (*m)->data = n->data;
+        (*m)->rows = n->rows;
+        (*m)->cols = n->cols;
     }
 }
 
@@ -259,30 +290,34 @@ int matrix_alloc(matrix_t **m, int rows, int cols)
     return OK;
 }
 
-void matrix_transform_1(matrix_t *a)
+void matrix_transform_1(matrix_t **a)
 {
     int c = 0, row = 0, col = 0;
 
-    if (a->rows > a->cols)
+    if ((*a)->rows > (*a)->cols)
     {
         //Удаление строк
-        c = a->rows - a->cols;
+        c = (*a)->rows - (*a)->cols;
 
         while (c != 0)
         {
-            find_max(a, &row, &col);
+            find_max((*a), &row, &col);
+            // printf("matrix[%d][%d] . max = %d\n______\n", row, col, (*a)->data[row][col]);
             matrix_delete_row(a, row);
+            // matrix_print((*a));
             c--;
         }
     }
     else
     {
         //Удаление столбцов
-        c = a->cols - a->rows;
+        c = (*a)->cols - (*a)->rows;
         while (c != 0)
         {
-            find_max(a, &row, &col);
+            find_max((*a), &row, &col);
+            // printf("matrix[%d][%d] . max = %d\n______\n", row, col, (*a)->data[row][col]);
             matrix_delete_col(a, col);
+            // matrix_print((*a));
             c--;
         }
     }

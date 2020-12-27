@@ -51,8 +51,8 @@ int main(void)
     // printf("______________________\n");
     // matrix_print(b);
     // printf("______________________\n");
-    matrix_transform_1(a);
-    matrix_transform_1(b);
+    matrix_transform_1(&a);
+    matrix_transform_1(&b);
 
     // printf("______________________\n");
     // matrix_print(a);

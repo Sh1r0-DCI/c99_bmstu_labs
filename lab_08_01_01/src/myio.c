@@ -37,13 +37,13 @@ int read_matrix(matrix_t **matr, int row, int col)
 
 void matrix_print(matrix_t *matr)
 {
-    if (0 != matr && 0 != matr->data)
+    if (matr != NULL && matr->data != NULL)
     {
         for (size_t i = 0; i < matr->rows; i++)
         {
             for (size_t j = 0; j < matr->cols; j++)
             {
-                printf("%3d ", matr->data[i][j]);
+                printf("%d ", matr->data[i][j]);
             }
 
             printf("\n");
