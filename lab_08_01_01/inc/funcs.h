@@ -8,7 +8,7 @@
 void*matrix_dup(matrix_t *src);
 void matrix_copy(matrix_t *dst, matrix_t *src);
 void matrix_destroy(matrix_t **matr);
-void *matrix_mul(matrix_t *a, matrix_t *b);
+matrix_t *matrix_mul(matrix_t *a, matrix_t *b);
 matrix_t *matrix_transform_3(matrix_t *a, matrix_t *b, int p, int y);
 void matrix_transform_2(matrix_t *a, size_t grow);
 void find_max(matrix_t *matr, int *row, int *col);

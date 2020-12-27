@@ -8,7 +8,7 @@
 #include "../inc/myio.h"
 
 
-void*matrix_dup(matrix_t *src)
+void *matrix_dup(matrix_t *src)
 {
     matrix_t *copy;
     matrix_alloc(&copy, src->rows, src->cols);
@@ -100,7 +100,7 @@ static int sum_cal(matrix_t *m, int r, int c)
     return sum / r;
 }
 
-void *matrix_mul(matrix_t *a, matrix_t *b)
+matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
 {
     matrix_t *m;
 
@@ -186,7 +186,7 @@ matrix_t *matrix_transform_3(matrix_t *a, matrix_t *b, int p, int y)
 
 void matrix_transform_2(matrix_t *a, size_t grow)
 {
-    if (a->rows >= grow)
+    if (a->rows > grow || a->cols > grow)
     {
         return;
     }
