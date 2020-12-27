@@ -3,7 +3,7 @@
 #define _STRUCS_H_
 
 
-typedef struct Matrix
+typedef struct matrix
 {
     int **data;
     size_t rows;

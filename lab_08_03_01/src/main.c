@@ -51,7 +51,6 @@ int main(void)
     // printf("______________________\n");
     // matrix_print(b);
     // printf("______________________\n");
-
     matrix_transform_1(a);
     matrix_transform_1(b);
 
@@ -60,7 +59,6 @@ int main(void)
     // printf("______________________\n");
     // matrix_print(b);
     // printf("______________________\n");
-
     if (a->rows > b->rows)
     {
         matrix_transform_2(b, a->rows);
@@ -75,8 +73,6 @@ int main(void)
     // printf("______________________\n");
     // matrix_print(b);
     // printf("______________________\n");
-
-    printf("input ro and gamma\n");
     scanf("%d %d", &ro, &gam);
 
     matrix_t *result_matrix = matrix_transform_3(a, b, ro, gam);

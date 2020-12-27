@@ -46,7 +46,7 @@ void matrix_destroy(matrix_t **matr)
     }
 }
 
-void matrix_delete_col(struct Matrix *m, size_t col)
+void matrix_delete_col(matrix_t *m, size_t col)
 {
     if (0 != m && 0 != m->data && m->cols > col)
     {
@@ -64,14 +64,14 @@ void matrix_delete_col(struct Matrix *m, size_t col)
             }
         }
         matrix_destroy(&m);
-        m = calloc(1, sizeof(struct Matrix));
+        m = calloc(1, sizeof(matrix_t));
         m->data = n->data;
         m->rows = n->rows;
         m->cols = n->cols;
     }
 }
 
-static int max_row(struct Matrix *m, size_t r)
+static int max_row(matrix_t *m, size_t r)
 {
     int max = m->data[0][0];
 
@@ -85,7 +85,7 @@ static int max_row(struct Matrix *m, size_t r)
     return max;
 }
 
-static int sum_cal(struct Matrix *m, int r, int c)
+static int sum_cal(matrix_t *m, int r, int c)
 {
     int sum = 0;
 
@@ -229,7 +229,7 @@ void matrix_delete_row(matrix_t *m, size_t row)
         }
 
         matrix_destroy(&m);
-        m = calloc(1, sizeof(struct Matrix));
+        m = calloc(1, sizeof(matrix_t));
         m->data = n->data;
         m->rows = n->rows;
         m->cols = n->cols;

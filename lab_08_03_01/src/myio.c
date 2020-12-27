@@ -6,8 +6,6 @@
 
 int read_sizes(int *row, int *col)
 {
-    printf("input matrix sizes:\n");
-
     if (scanf("%d %d", row, col) != 2)
     {
         return INPUT_ERROR;
@@ -23,8 +21,6 @@ int read_sizes(int *row, int *col)
 
 int read_matrix(matrix_t **matr, int row, int col)
 {
-    printf("input matrix:\n");
-
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
