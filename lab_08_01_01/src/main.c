@@ -20,7 +20,7 @@ int main(void)
         return rc;
     }
 
-    if((rc = matrix_alloc(&a, n, m)))
+    if ((rc = matrix_alloc(&a, n, m)))
     {
         return rc;
     }
@@ -36,7 +36,7 @@ int main(void)
         return rc;
     }
 
-    if((rc = matrix_alloc(&b, p, q)))
+    if ((rc = matrix_alloc(&b, p, q)))
     {
         return rc;
     }
@@ -73,7 +73,12 @@ int main(void)
     // printf("______________________\n");
     // matrix_print(b);
     // printf("______________________\n");
-    scanf("%d %d", &ro, &gam);
+    if ((rc = scanf("%d %d", &ro, &gam) != 2) || ro < 0 || gam < 0)
+    {
+        matrix_destroy(&a);
+        matrix_destroy(&b);
+        return INPUT_ERROR;
+    }
 
     matrix_t *result_matrix = matrix_transform_3(a, b, ro, gam);
     matrix_print(result_matrix);

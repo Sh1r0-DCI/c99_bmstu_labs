@@ -78,7 +78,8 @@ static int max_row(matrix_t *m, size_t r)
 {
     int max = m->data[0][0];
 
-    for (size_t col = 0; col < m->cols; ++col) {
+    for (size_t col = 0; col < m->cols; col++)
+    {
         int v = m->data[r][col];
         if (v > max)
         {
@@ -221,7 +222,7 @@ void matrix_transform_2(matrix_t *a, size_t grow)
     a->cols = m->cols;
 }
 
-void find_max (matrix_t *matr, int *row, int *col)
+void find_max(matrix_t *matr, int *row, int *col)
 {
     int max = matr->data[0][0];
 
@@ -235,10 +236,8 @@ void find_max (matrix_t *matr, int *row, int *col)
                 *row = i;
                 *col = j;
             }
-        }
-        
+        }   
     }
-    
 }
 
 void matrix_delete_row(matrix_t **m, size_t row)
@@ -283,6 +282,12 @@ int matrix_alloc(matrix_t **m, int rows, int cols)
 
         if ((*m)->data[i] == NULL)
         {
+            //clearing
+            for (int j = 0; j < i; j++)
+            {
+                free((*m)->data[j]);
+            }
+            free((*m)->data);
             return ALLOCATION_ERROR;
         }
     }

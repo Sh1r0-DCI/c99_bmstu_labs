@@ -25,7 +25,7 @@ int read_matrix(matrix_t **matr, int row, int col)
     {
         for (int j = 0; j < col; j++)
         {
-            if(scanf("%d", &((*matr)->data[i][j])) != 1)
+            if (scanf("%d", &((*matr)->data[i][j])) != 1)
             {
                 return INPUT_ERROR;
             }
