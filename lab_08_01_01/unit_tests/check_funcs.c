@@ -29,7 +29,13 @@ int cmp_matrixes(matrix_t *a, matrix_t *b)
 
 START_TEST(test_matrix_transform_1_cols)
 {
-    matrix_t *a = 0, *ans = 0;
+    matrix_t *a = NULL;
+    
+    matrix_alloc(&a, 2, 3);
+    
+    matrix_t *ans = NULL;
+    matrix_alloc(&ans, 2, 2);
+    
     a->rows = 2;
     a->cols = 3;
     a->data[0][0] = 4;
@@ -60,7 +66,13 @@ START_TEST(test_matrix_transform_1_cols)
 
 START_TEST(test_matrix_transform_1_rows)
 {
-    matrix_t *a = 0, *ans = 0;
+    matrix_t *a = NULL;
+    
+    matrix_alloc(&a, 5, 3);
+    
+    matrix_t *ans = NULL;
+    matrix_alloc(&ans, 3, 3);
+
     a->rows = 5;
     a->cols = 3;
     a->data[0][0] = 0;
@@ -104,12 +116,17 @@ START_TEST(test_matrix_transform_1_rows)
     matrix_transform_1(&a);
 
     int c = cmp_matrixes(a, ans);
-    ck_assert_int_eq(c, 1);
+    ck_assert_int_eq(c, 0);
 }
 
 START_TEST(test_matrix_transform_2)
 {
-    matrix_t *a = 0, *ans = 0;
+    matrix_t *a = NULL;
+    
+    matrix_alloc(&a, 2, 2);
+    
+    matrix_t *ans = NULL;
+    matrix_alloc(&ans, 3, 3);
     a->rows = 2;
     a->cols = 2;
     a->data[0][0] = 4;
@@ -144,7 +161,15 @@ START_TEST(test_matrix_transform_2)
 
 START_TEST(test_matrix_transform_3_neg)
 {
-    matrix_t *a = 0, *b = 0, *ans = 0;
+    matrix_t *a = NULL;
+    matrix_alloc(&a, 3, 3);
+
+    matrix_t *b = NULL;
+    matrix_alloc(&b, 3, 3);
+    
+    matrix_t *ans = NULL;
+    matrix_alloc(&ans, 3, 3);
+
     a->rows = 3;
     a->cols = 3;
     a->data[0][0] = 4;
@@ -196,12 +221,20 @@ START_TEST(test_matrix_transform_3_neg)
     matrix_t *result = matrix_transform_3(a, b, -2, 3);
 
     int c = cmp_matrixes(result, ans);
-    ck_assert_int_eq(c, 1);
+    ck_assert_int_eq(c, 0);
 }
 
 START_TEST(test_matrix_transform_3_pos)
 {
-    matrix_t *a = 0, *b = 0, *ans = 0;
+    matrix_t *a = NULL;
+    matrix_alloc(&a, 3, 3);
+
+    matrix_t *b = NULL;
+    matrix_alloc(&b, 3, 3);
+    
+    matrix_t *ans = NULL;
+    matrix_alloc(&ans, 3, 3);
+
     a->rows = 3;
     a->cols = 3;
     a->data[0][0] = 4;
@@ -270,7 +303,7 @@ Suite* funcs_suite(void)
     tcase_add_test(tc_transform_1, test_matrix_transform_1_cols);
     tcase_add_test(tc_transform_1, test_matrix_transform_1_rows);
 
-    suite_add_tcase(s, tc_transform_2);
+    suite_add_tcase(s, tc_transform_1);
     
     tc_transform_2 = tcase_create("transform_2");
     
