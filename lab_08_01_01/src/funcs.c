@@ -100,13 +100,16 @@ static int sum_cal(matrix_t *m, int r, int c)
     return sum / r;
 }
 
-matrix_t *matrix_mul(matrix_t * a, matrix_t *b)
+matrix_t *matrix_mul(matrix_t *a, matrix_t *b)
 {
     matrix_t *m = NULL;
 
     if (a->cols == b->cols && a->rows == b->rows)
     {
-        if(matrix_alloc(&m, a->rows, a->cols))
+        if (matrix_alloc(&m, a->rows, a->cols))
+        {
+            return NULL;
+        }
 
         for (size_t row = 0; row < a->rows; ++row)
         {
