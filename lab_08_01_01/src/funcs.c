@@ -291,6 +291,7 @@ int matrix_alloc(matrix_t **m, int rows, int cols)
                 free((*m)->data[j]);
             }
             free((*m)->data);
+            free(*m);
             return ALLOCATION_ERROR;
         }
     }

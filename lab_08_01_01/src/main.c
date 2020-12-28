@@ -27,22 +27,27 @@ int main(void)
 
     if ((rc = read_matrix(&a, n, m)))
     {
+        matrix_destroy(&a);
         return rc;
     }
 
 
     if ((rc = read_sizes(&p, &q)))
     {
+        matrix_destroy(&a);
         return rc;
     }
 
     if ((rc = matrix_alloc(&b, p, q)))
     {
+        matrix_destroy(&a);
         return rc;
     }
     
     if ((rc = read_matrix(&b, p, q)))
     {
+        matrix_destroy(&a);
+        matrix_destroy(&b);
         return rc;
     }
 
