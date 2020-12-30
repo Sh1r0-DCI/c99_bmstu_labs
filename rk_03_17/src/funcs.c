@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "funcs.h"
 
@@ -17,6 +18,7 @@ void matrix_destroy(int ***matr, int n)
     for (int i = 0; i < n; i++)
     {
         free((*matr)[i]);
+        printf("freed matr[%d]\n", i);
     }
 
     free(*matr);

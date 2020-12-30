@@ -2,16 +2,17 @@
 
 #include "error_codes.h"
 
-int fread_matrix(FILE *f, int **matrix, int n, int m)
+int fread_matrix(FILE *f, int **matr, int n, int m)
 {
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            if(fscanf(f, "%d", &(matrix[i][j])) != 1)
+            if(fscanf(f, "%d", &(matr[i][j])) != 1)
             {
                 return INPUT_ERROR;
             }
+            printf("read [%d][%d] = %d\n", i, j, matr[i][j]);
         }
     }
 
@@ -20,6 +21,9 @@ int fread_matrix(FILE *f, int **matrix, int n, int m)
 
 int fread_size(FILE *f, int *n, int *m)
 {
+    n = 0;
+    m = 0;
+
     if (f == NULL)
     {
         return EMPTY_FILE;
@@ -32,7 +36,7 @@ int fread_size(FILE *f, int *n, int *m)
     {
         c_temp = fgetc(f);
 
-        if (c_temp == ' ')
+        if (c_temp == ' ' && m == 0)
         {
             cols++;
         }
@@ -40,11 +44,13 @@ int fread_size(FILE *f, int *n, int *m)
         if (c_temp == '\n')
         {
             rows++;
+            *m = cols;
+            cols = 1;
         }
     }
 
-    *n = rows;
     *m = cols;
+    *n = rows;
 
     return OK;
 }

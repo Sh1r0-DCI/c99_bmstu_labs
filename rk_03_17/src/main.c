@@ -35,7 +35,7 @@ int main()
     matrix_transform_1(matr, n, m);
     matrix_tranform_2(&matr, &n, m);
 
-    print_matrix_to_file(f_out, matr, n, m);
+    print_matrix_to_file(f_out, matr, n, m);    
 
     matrix_destroy(&matr, n);
 

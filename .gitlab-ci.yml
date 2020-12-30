@@ -11,8 +11,8 @@ rk_03:
   image: gcc
   stage: build
   only:
-- rk_03
+      - rk_03
   script:
-- cd rk_03_XX
+      - cd rk_03_XX
       - make build
 
