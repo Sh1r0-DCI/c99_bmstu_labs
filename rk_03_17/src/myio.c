@@ -8,7 +8,7 @@ int fread_matrix(FILE *f, int **matrix, int n, int m)
     {
         for (int j = 0; j < m; j++)
         {
-            if(fscanf(f, "%d", matrix[i][j]) != 1)
+            if(fscanf(f, "%d", &(matrix[i][j])) != 1)
             {
                 return INPUT_ERROR;
             }
@@ -25,7 +25,7 @@ int fread_size(FILE *f, int *n, int *m)
         return EMPTY_FILE;
     }
 
-    int rc, temp, rows = 1, cols = 1;
+    int rows = 1, cols = 1;
     char c_temp;
 
     while (!feof(f))
@@ -43,8 +43,8 @@ int fread_size(FILE *f, int *n, int *m)
         }
     }
 
-    n = rows;
-    m = cols;
+    *n = rows;
+    *m = cols;
 
     return OK;
 }

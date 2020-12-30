@@ -68,7 +68,7 @@ void matrix_tranform_2(int ***matr, int *n, int m)
 {
     int not_zero = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < *n; i++)
     {
         for (int j = 0; j < m; j++)
         {
@@ -112,7 +112,7 @@ void delete_row(int ***matr, int *n, int m, int row)
     matrix_destroy(matr, (*n)--);
     matrix_alloc(matr, *n, m);
     matrix_cpy(*matr, temp_matr, *n, m);
-    matrix_destroy(temp_matr, *n);
+    matrix_destroy(&temp_matr, *n);
 }
 
 void matrix_cpy(int **dst, int **src, int n, int m)

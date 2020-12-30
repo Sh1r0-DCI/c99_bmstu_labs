@@ -28,7 +28,7 @@ int main()
 
     if ((rc = fread_matrix(f, matr, n, m)))
     {
-        matrix_destroy(matr, n, m);
+        matrix_destroy(&matr, n);
         return rc;
     }
 
@@ -37,7 +37,7 @@ int main()
 
     print_matrix_to_file(f_out, matr, n, m);
 
-    matrix_destroy(matr, n);
+    matrix_destroy(&matr, n);
 
     return OK;
 }
