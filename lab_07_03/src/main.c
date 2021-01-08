@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     if (fget_numbers(f_in, &numbers) == INPUT_ERROR)
     {
-        if(fclose(f_in))
+        if (fclose(f_in))
             return FCLOSE_ERROR;
         return INPUT_ERROR;
     }
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
         if (f_out == NULL)
         {
             free(in_array_begin);
-            if(fclose(f_in))
+            if (fclose(f_in))
                 return FCLOSE_ERROR;
             return FOPEN_ERROR;
         }
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         return EMPTY_FILE;
     }
 
-    if(fclose(f_in) || fclose(f_out))
+    if (fclose(f_in) || fclose(f_out))
         return FCLOSE_ERROR;
     return OK;
 }
