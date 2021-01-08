@@ -10,6 +10,7 @@
 #define UNEXISTING_FILE 4
 #define FILTRATION_FAILURE 5
 #define EMPTY_FILE 6
+#define FCLOSE_ERROR 7
 
 
 #endif
