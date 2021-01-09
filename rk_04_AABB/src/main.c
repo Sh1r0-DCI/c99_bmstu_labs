@@ -2,6 +2,7 @@
 
 #include "error_codes.h"
 #include "myio.h"
+#include "list_funcs.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,5 +21,15 @@ int main(int argc, char *argv[])
     node_t *head = NULL;
     int rc = OK;
 
-    if ((rc = read_list_from_file()))
+    if ((rc = read_list_from_file(f_in, &head)))
+    {
+        return rc;
+    }
+
+    reverse(&head);
+
+    print_list_to_file(f_out, head);
+
+    free_list(&head);
+    return OK;
 }

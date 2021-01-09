@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "list_funcs.h"
 #include "error_codes.h"
@@ -31,4 +32,46 @@ int push_back(node_t **head, char letter)
     i->next = new_node;
 
     return OK;
+}
+
+void reverse(node_t **head)
+{
+    node_t *i = *head, *prev_word = *head, *temp = NULL, \
+    *last_space = NULL;
+
+    while (i)
+    {
+        if (i->letter == ' ')
+        {
+            last_space = i;
+            temp = i->next;
+            i->next = prev_word;
+            prev_word = temp;
+
+            i = temp;
+        }
+        // else if (i->next == NULL)
+        // {
+        //     i->next = last_space;
+        // }
+        else
+        {
+            i = i->next;
+        }
+    }
+
+    *head = prev_word;
+    (*head)->next = last_space;
+}
+
+void free_list(node_t **head)
+{
+    if (!((*head)->next))
+    {
+        free(*(head));
+    }
+    else
+    {
+        free_list(&((*head)->next));
+    }
 }

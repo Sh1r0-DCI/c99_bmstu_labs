@@ -4,10 +4,11 @@
 
 int read_list_from_file(FILE *f, node_t **head)
 {
-    while (!feof(f))
-    {
-        char temp = fgetc(f);
+    int rc = OK;
+    char temp = fgetc(f);
 
+    while (!feof(f) && temp != EOF)
+    {
         if (temp == EOF)
         {
             return FREAD_ERROR;
@@ -17,7 +18,12 @@ int read_list_from_file(FILE *f, node_t **head)
             return OK;
         }
 
-        push_back(head, temp);
+        if((rc = push_back(head, temp)))
+        {
+            return rc;
+        }
+
+        temp = fgetc(f);
     }
     
     return OK;
@@ -29,7 +35,8 @@ void print_list_to_file(FILE *f, node_t *head)
 
     while (temp)
     {
-        fprintf(f, "%c");
+        //fprintf(f, "%s", temp);
+        fputc(temp->letter, f);
         temp = temp->next;
     }
 }
