@@ -1,6 +1,6 @@
 Shitty labs for Olenev
 
-Full passed labs: 1 - 9 (̶5̶ )
+Full passed labs: 1 - 8 (̶5̶ )
 
 all other labs w/out running pipelines and w/ incorrect code style
 
@@ -11,3 +11,5 @@ rk_02 - 5.0
 rk_03 - 11.25
 
 rk_04 - 8.25
+
+all rk's in unmerged branches
