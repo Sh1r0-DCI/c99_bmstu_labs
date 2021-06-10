@@ -1,4 +1,4 @@
-Shitty labs for Olenev
+Shitty labs for Olenev\n
 Full passed labs: 1 - 9 (̶5̶ )
 all other labs w/out running pipelines and w/ incorrect code style
 rk_01 - 5.0
