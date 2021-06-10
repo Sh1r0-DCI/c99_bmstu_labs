@@ -1,6 +1,6 @@
 Shitty labs for Olenev
 
-Full passed labs: 1 - 8 (̶5̶ )
+Full passed labs: 1 - 8 (~~5~~)
 
 all other labs w/out running pipelines and w/ incorrect code style
 
