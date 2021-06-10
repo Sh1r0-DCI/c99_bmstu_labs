@@ -1,1 +1,7 @@
-[C](https://ru.wikipedia.org/wiki/%D0%A1%D0%B8_(%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F))
+Shitty labs for Olenev
+Full passed labs: 1 - 9 (̶5̶ )
+all other labs w/out running pipelines and w/ incorrect code style
+rk_01 - 5.0
+rk_02 - 5.0
+rk_03 - 11.25
+rk_04 - 8.25
