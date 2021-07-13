@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "myio.h"
 #include "parse_args.h"
@@ -39,7 +40,7 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
         printf("rc = %d", rc);
         return rc;
     }
-    printf("input finished ok.....(probably ok)\n");
+    // printf("input finished ok.....(probably ok)\n");
     
     // if (key == NULL)
     // {
@@ -58,6 +59,8 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
     print_strucs_array(films, num_of_films);
 
     free_array(films, num_of_films);
+    free(field);
+    free(key);
 
     return fclose(f);
 }

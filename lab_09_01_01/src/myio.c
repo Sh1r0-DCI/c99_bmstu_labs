@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <unistd.h>
+
 #include "myio.h"
 
 
-int input_strucs_from_file(FILE *f, film_info *films, int num_of_films)
+int input_strucs_from_file(FILE *f, film_info *films, int num_of_films) // strucs are instantly sorted
 {
     for (int i = 0; i < (num_of_films) && !feof(f); i++)
     {
@@ -24,40 +26,28 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films)
             printf("input interrupt {title}\n");
             return ALLOC_ERROR;
         }
-
-        printf("%s\t\t\t= %s\n", films[i].title, line);
-        free(line);
     // -----------------------------------------------
 
-        printf("title reading finished\n");
+        // printf("title reading finished\n");
 
     // ____________director_name_reading______________
-        printf("getline in shit started\n");
         if (getline(&line, &len, f) == -1)
         {
             return INPUT_ERROR;
         }
-        printf("getline finished ok\n");
 
         // printf("%s\t\t\twas read\n", line);
-        printf("strdup started\n");
         films[i].director_name = strdup(line);
-        for (char *c = films[i].director_name; *c != '\0'; c++)
-        {
-            printf("\t\t%c\n", *c);
-        }
+
         if (!(films[i].director_name))
         {
             printf("input interrupt {director name}\n");
             return ALLOC_ERROR;
         }
-        printf("strdup finished\n");
-            
-        printf("%s\t\t\t= %s\n", films[i].director_name, line);
-        free(line);
+        // printf("%s\t\t\t= %s\n", films[i].director_name, line);
     // ------------------------------------------------
 
-    printf("director name reading finished\n");
+        // printf("director name reading finished\n");
 
     // ________________year_reading____________________
         
@@ -68,8 +58,7 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films)
 
         // printf("%s\t\t\twas read\n", line);
         films[i].year = (int) strtol(line, (char **)NULL, 10);
-        printf("%d\t\t\t= %s\n", films[i].year, line);
-        free(line);
+        // printf("%d\t\t\t= %s\n", films[i].year, line);
 
         if (films[i].year < CINEMA_INVENTION_DATE)
         {
@@ -77,6 +66,8 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films)
             return INCORECT_DATE;
         }
     // ------------------------------------------------
+
+        free(line);
     }
         
     return OK;
@@ -84,8 +75,37 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films)
 
 void print_strucs_array(film_info *films, int num_of_films) 
 {
+    int answer = -1;
+
+    sleep(5);
+    printf("num of films is %d\n", num_of_films);
+
+    if (num_of_films > 20)
+    {
+        printf("Too much films. Still print them all?\n");
+        printf("Answer(0 - No, 1 - Yes): ");
+        fflush(stdout);
+
+        int rc = scanf("%d", &answer);
+
+        if(rc != 1)
+        {
+            print_strucs_array(films, num_of_films);
+            return;
+        }
+
+        if (!answer)
+        {
+            printf("\n%s%s%d\n", films[0].title, films[0].director_name, films[0].year);
+            printf("\n...\n...\n...\n");
+            printf("\n%s%s%d\n", films[num_of_films - 1].title, 
+                    films[num_of_films - 1].director_name, films[num_of_films - 1].year);
+            return;
+        }
+    }
+
     for (int i = 0; i < num_of_films; i++)
     {
-        printf("\n%s\n%s\n%d\n", films[i].title, films[i].director_name, films[i].year);
+        printf("\n%s%s%d\n", films[i].title, films[i].director_name, films[i].year);
     }
 }

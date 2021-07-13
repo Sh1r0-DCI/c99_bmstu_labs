@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "operating_funcs.h"
 #include "strucs.h"
@@ -22,6 +23,8 @@ static int count_num_of_strucs(FILE *f) // decided to use getline + sscanf (real
 
     return n/3;
 }
+
+// int insert_struc(film_info *films, int num_of_films, )
 
 int alloc_struc_array(FILE *f, film_info **p_films, int *p_num_of_films)
 {

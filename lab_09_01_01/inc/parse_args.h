@@ -1,6 +1,6 @@
 #ifndef __PARSE_ARGS_H__
 
-#define __PARSE_AGRS_H__
+#define __PARSE_ARGS_H__
 
 #include <stdio.h>
 
