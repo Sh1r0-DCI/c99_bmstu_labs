@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <unistd.h>
+// #include <unistd.h>
 
 #include "myio.h"
 
@@ -77,19 +77,19 @@ void print_strucs_array(film_info *films, int num_of_films)
 {
     int answer = -1;
 
-    sleep(5);
     printf("num of films is %d\n", num_of_films);
 
     if (num_of_films > 20)
     {
         printf("Too much films. Still print them all?\n");
         printf("Answer(0 - No, 1 - Yes): ");
-        fflush(stdout);
 
         int rc = scanf("%d", &answer);
+        getc(stdin);
 
         if(rc != 1)
         {
+            printf("Wrong input...Starting over.\n");
             print_strucs_array(films, num_of_films);
             return;
         }
