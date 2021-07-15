@@ -16,7 +16,6 @@
 // ---other constants-----------------
 #define CINEMA_INVENTION_DATE 1891
 #define FILENAME_SIZE   80
-#define LINE_SIZE       256
 //------------------------------------
 
 // structures--------------

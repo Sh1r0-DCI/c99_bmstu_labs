@@ -6,7 +6,7 @@
 
 #include "strucs.h"
 
-int input_strucs_from_file(FILE *f, film_info *films, int num_of_films);
+int input_strucs_from_file(FILE *f, film_info *films, int num_of_films, char *field);
 void print_strucs_array(film_info *films, int num_of_films);
 
 #endif

@@ -22,6 +22,7 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
         return rc;
 
     // printf("filename is: %s?\n", filename);
+    printf("field=%s, key=%s\n", field, key);
     f = fopen(filename, "r");
 
     if (!f)
@@ -32,9 +33,9 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
         free_array(films, num_of_films);
         return rc;
     }
-    // printf("alloc finished ok.....(probably ok)\n");
+    printf("alloc finished ok.....(probably ok)\n");
 
-    if ((rc = input_strucs_from_file(f, films, num_of_films)) != OK)
+    if ((rc = input_strucs_from_file(f, films, num_of_films, field)) != OK)
     {
         free_array(films, num_of_films);
         printf("rc = %d", rc);
