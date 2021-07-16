@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <unistd.h>
+
 #include "operating_funcs.h"
 #include "strucs.h"
 
@@ -81,6 +83,88 @@ int insert_struc(film_info *films, int num_of_films, char *field,
     films[id].year = year;
 
     return OK;
+}
+
+int field_bin_search(film_info *films, int n, char *field, char *key)
+{
+    printf("started searching\n");
+    if (!strcmp(field, "year"))
+    {
+        printf("searching year\n");
+        int temp_year = (int) strtol(key, (char **)NULL, 10);
+
+        for (int left_border = 0, i = n / 2; left_border != n; i = left_border + (n - left_border - 1) / 2 + 1)
+        {
+            if (films[i].year == temp_year)
+            {
+                printf("\n________________________________\n");
+                printf("%s%s%d\n", films[i].title, films[i].director_name, films[i].year);
+                printf("________________________________\n");
+                return OK;
+            }
+
+            if (films[i].year < temp_year)
+            {
+                left_border = i;
+            }
+            else
+            {
+                n = i;
+            }
+        }
+    }
+    else if (!strcmp(field, "title"))
+    {
+        printf("searching title, key = %s\n", key);
+        for (int left_border = 0, i = n / 2; left_border != n; i = left_border + (n - left_border - 1) / 2 + 1)
+        {
+            sleep(1);
+            printf("left border = %d; i = %d; n = %d\n", left_border, i, n);
+            printf("[i] = %s\n", films[i].title);
+            printf("%d\n", strcmp(films[i].title, key));
+            if (!strcmp(films[i].title, key))
+            {
+                printf("\n________________________________\n");
+                printf("%s%s%d\n", films[i].title, films[i].director_name, films[i].year);
+                printf("________________________________\n");
+                return OK;
+            }
+            
+            if (strcmp(films[i].title, key) < 0)
+            {
+                left_border = i;
+            }
+            else
+            {
+                n = i;
+            }
+        }
+    }
+    else if (!strcmp(field, "name"))
+    {
+        printf("searching name\n");
+        for (int left_border = 0, i = n / 2; left_border != n; i = left_border + (n - left_border + 1) / 2 + 1)
+        {
+            if (!strcmp(films[i].director_name, key))
+            {
+                printf("\n________________________________\n");
+                printf("%s%s%d\n", films[i].title, films[i].director_name, films[i].year);
+                printf("________________________________\n");
+                return OK;
+            }
+            
+            if (strcmp(films[i].director_name, key) < 0)
+            {
+                left_border = i;
+            }
+            else
+            {
+                n = i;
+            }
+        }
+    }
+
+    return NOT_FOUND;
 }
 
 int alloc_struc_array(FILE *f, film_info **p_films, int *p_num_of_films)

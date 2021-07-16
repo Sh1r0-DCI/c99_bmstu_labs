@@ -33,7 +33,7 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
         free_array(films, num_of_films);
         return rc;
     }
-    printf("alloc finished ok.....(probably ok)\n");
+    // printf("alloc finished ok.....(probably ok)\n");
 
     if ((rc = input_strucs_from_file(f, films, num_of_films, field)) != OK)
     {
@@ -43,21 +43,18 @@ int main(int argc, char **argv) // app.exe FILE{title/name/year} FIELD [KEY]
     }
     // printf("input finished ok.....(probably ok)\n");
     
-    // if (key == NULL)
-    // {
-    // // sort strucs by field
-    // // output
-
-    // }
-    // else
-    // {
-    // // Bin search on field and key and output info
-    // // "Not found" if not
-
-    // }
-
-    printf("printing array...\n");
-    print_strucs_array(films, num_of_films);
+    if (key != NULL)
+    {
+        if(field_bin_search(films, num_of_films - 1, field, key))
+        {
+            printf("\n\nNot found.\n");
+        }
+    }
+    else
+    {
+        printf("printing array...\n");
+        print_strucs_array(films, num_of_films);
+    }
 
     free_array(films, num_of_films);
     free(field);

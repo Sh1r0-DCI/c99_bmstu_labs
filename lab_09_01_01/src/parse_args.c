@@ -23,12 +23,13 @@ int parse_args(const int argc, const char *argv[], char *file_name, char **field
 
     if (argc == 4)
     {
-        *key = malloc(strlen(argv[3]) + 1);
+        *key = malloc(strlen(argv[3]) + 2);
 
         if (key == NULL)
             return ALLOC_ERROR;
 
         strcpy(*key, argv[3]);
+        strcat(*key, "\n");
     }
 
     return OK;

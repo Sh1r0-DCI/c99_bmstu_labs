@@ -44,7 +44,7 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films, char *fi
             printf("input interrupt {year}\n");
             return INCORECT_DATE;
         }
-        printf("just do it\n");
+
         if (insert_struc(films, i, field, line_title, line_name, temp_year))
         {
             return ALLOC_ERROR;
@@ -53,7 +53,6 @@ int input_strucs_from_file(FILE *f, film_info *films, int num_of_films, char *fi
         free(line_title);
         free(line_name);
         free(line_year);
-        printf("really?\n");
     }
         
     return OK;

@@ -11,6 +11,7 @@
 #define INPUT_ERROR     5
 #define INCORECT_DATE   6
 #define FILE_INF_ERROR  7
+#define NOT_FOUND       8
 //------------------------------
 
 // ---other constants-----------------
