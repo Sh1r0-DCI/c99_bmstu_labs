@@ -1,4 +1,4 @@
-Shitty labs for Olenev
+С labs for Olenev
 
 Full passed labs: 1 - 7 (~~5~~)
 
